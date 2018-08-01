@@ -1,10 +1,12 @@
 ThinkCMF 5.0.180626 正式版
-===============
+===
 
 ### 系列讲座
+
 https://www.thinkcmf.com/college.html
 
 ### ThinkCMF5主要特性
+
 * 基于全新 ThinkPHP5.0开发
 * 更规范的代码,遵循PSR-2命名规范和PSR-4自动加载规范
 * 更规范的数据库设计
@@ -25,26 +27,27 @@ https://www.thinkcmf.com/college.html
 * 后台首页插件化，用户可以定制的网站后台首页
 
 ### 环境推荐
+
 > php5.5+
-
+> 
 > mysql 5.6+
-
+> 
 > 打开rewrite
-
 
 ### 最低环境要求
+
 > php5.4+
-
+> 
 > mysql 5.5+ (mysql5.1安装时选择utf8编码，不支持表情符)
-
+> 
 > 打开rewrite
 
-
 ### 运行环境配置教程
+
 https://www.thinkcmf.com/topic/1502.html
 
-
 ### 自动安装
+
 > 之前安装过 cmf5的同学,请手动创建`data/install.lock`文件
 
 代码已经加入自动安装程序,如果你在安装中有任何问题请提交 issue!
@@ -55,13 +58,16 @@ https://www.thinkcmf.com/topic/1502.html
 enjoy your cmf~!
 
 ### 系统更新
+
 如果您是已经安装过 cmf5的用户,请查看 update 目录下的 sql 升级文件,根据自己的下载的程序版本进行更新
 
 ### API开发 (支持app,小程序,web)
+
 如果你需要 `api` 开发请下载:  
 ThinkCMF5 API :https://github.com/thinkcmf/thinkcmfapi
 
 ### 完整版目录结构
+
 ```
 thinkcmf  根目录
 ├─api                   api目录(核心版不带)
@@ -107,11 +113,13 @@ thinkcmf  根目录
 ```
 
 ### 开发手册
+
 http://www.kancloud.cn/thinkcmf/doc
 
 ### QQ群:
+
 `ThinkCMF 官方交流群`:316669417  
-   
+
 `ThinkCMF 高级交流群`:100828313 (付费)  
 高级群专属权益:  
 第一波:两个后台风格(ThinkCMF官网风格后台主题,蓝色风格后台主题)  
@@ -121,13 +129,17 @@ http://www.kancloud.cn/thinkcmf/doc
 `ThinkCMF 铲屎官交流群`:415136742 (生活娱乐，为有喵的猿人准备)
 
 ### 话题专区
+
 http://www.thinkcmf.com/topic/index/index/cat/11.html
 
 ### 反馈问题
+
 https://github.com/thinkcmf/thinkcmf/issues
 
 ### 更新日志
+
 #### 5.0.180626
+
 * 升级TP到`5.0.20`
 * 增加插件REST api基类`PluginRestBaseController`
 * 增加我的喜欢功能
@@ -142,10 +154,12 @@ https://github.com/thinkcmf/thinkcmf/issues
 * 前台模板文件解析标准化
 
 [门户应用]
+
 * 增加文章`thumbnail`字段
 * 增加文章收藏数功能
 
 #### 5.0.180525
+
 * 修复ajax请求普通页面时返回格式为json
 * 优化图片链接生成
 * 修复插件模板常量地址问题
@@ -155,11 +169,14 @@ https://github.com/thinkcmf/thinkcmf/issues
 * 优化无限滚动jquery插件
 
 #### 5.0.180508
+
 * 修复用户注册问题
 * 优化缓存清理，防止删除日志文件
 
 #### 5.0.180501
+
 [核心]
+
 * 升级TP到5.0.19，增强安全性
 * 修复模板设计数组编辑验证规则不生效 #440
 * 修复后台登录失效后iframe里加载首页
@@ -173,13 +190,16 @@ https://github.com/thinkcmf/thinkcmf/issues
 * 升级font awesome到4.7.0
 
 [门户应用]
+
 * 修复文章分类修改层级后子分类层级不更新问题
 * 优化 portal:articles 标签field,order 属性支持 php 变量
 * 修复文章分类别名设置为纯数字，路由生成错误，无法访问。 #438
 * 增加页面相册和附件功能 #449
 
 #### 5.0.180123
+
 [核心]
+
 * 增加小程序管理插件
 * 增加插件后台首页左侧菜单显示 
 * 增加 themes 根命名空间
@@ -214,12 +234,14 @@ https://github.com/thinkcmf/thinkcmf/issues
 * 优化前台未登录时跳转方式
 
 [安装程序]
+
 * 增加安装时管理员密码长度限制 #334 
 * 增加安装时检查 rewrite设置
 * 增加安装时 innodb 检测
 * 更正PHP版本要求
 
 [门户应用]
+
 * 优化portal:articles标签可在模板里设置分页参数和样式
 * 优化portal:articles标签所有属性都支持PHP变量
 * 优化标签控制器支持标签名
@@ -227,9 +249,10 @@ https://github.com/thinkcmf/thinkcmf/issues
 * 取消文章列表用户关联查询
 * 修复文章多分类进文章列表文章重复问题
 
-
 #### 5.0.170927
+
 [核心]
+
 * 增加是否开放注册设置
 * 增加已经安装模板文件检测是否已经删除功能
 * 增加模板卸载风险提示
@@ -257,10 +280,12 @@ https://github.com/thinkcmf/thinkcmf/issues
 * 修复绑定手机号和绑定邮箱号惟一性提示信息错
 
 [安装程序]
+
 * 更改安装时数据库默认为127.0.0.1
 * 优化安装时链接生成
 
 [门户应用]
+
 * 增加前台文章控制器默认分类指定
 * 增加后台文章列表所在分类列
 * 增加后台文章分类必须指定分类验证
@@ -281,7 +306,9 @@ https://github.com/thinkcmf/thinkcmf/issues
 https://www.kancloud.cn/thinkcmf/doc/327443
 
 #### 5.0.170607
+
 [核心]
+
 * 删除 app/common.php
 * 规范 admin.js frontend.js函数名
 * 更改后台模板设计的模板文件列表排序规则为从小到大排序
@@ -303,6 +330,7 @@ https://www.kancloud.cn/thinkcmf/doc/327443
 * 修复插件更新时不更新新增的钩子
 
 [门户应用]
+
 * 完善前台模板钩子
 * 完善文章标签功能
 * 增加前台模板手机注册关闭开关
@@ -311,7 +339,9 @@ https://www.kancloud.cn/thinkcmf/doc/327443
 * 修复文章分类排序功能
 
 #### 5.0.170520
+
 [核心]
+
 * 完善插件后台管理
 * 后台登录插件化
 * 后台首页插件化
@@ -339,6 +369,7 @@ https://www.kancloud.cn/thinkcmf/doc/327443
 * 合并asset应用到 user
 
 [门户应用]
+
 * 增加文章收藏功能
 * 增加文章点赞限制,一个用户只能点赞一次
 * 增加文章分类缩略图
@@ -350,7 +381,9 @@ https://www.kancloud.cn/thinkcmf/doc/327443
 * 修复页面删除后仍可以访问
 
 #### 5.0.170505
+
 [核心]
+
 * 完善用户注册流程
 * 完善插件功能
 * 增加手机验证码发送钩子
@@ -371,11 +404,14 @@ https://www.kancloud.cn/thinkcmf/doc/327443
 * 取消前台有错误时界面刷新
 
 [门户应用]
+
 * 增加文章附件功能
 * 优化文章相册
 
 #### 5.0.170422
+
 [核心]
+
 * 完善幻灯片
 * 完善后台控制器方法注释
 * 增加调试模式下实时更新模板配置
@@ -397,6 +433,7 @@ https://www.kancloud.cn/thinkcmf/doc/327443
 * 修复后台菜单不能添加编辑
 
 [门户应用]
+
 * 完全独立门户应用
 * 完善后台页面管理
 * 完善面包屑标签`breadcrumb`
@@ -410,6 +447,7 @@ https://www.kancloud.cn/thinkcmf/doc/327443
 * 增加文章列表分页总数获取
 
 #### 5.0.170401
+
 * 完善文件上传
 * 增加回收站功能
 * 完善友情链接
@@ -423,5 +461,3 @@ https://www.kancloud.cn/thinkcmf/doc/327443
 * 完善导航
 * 增加插件钩子管理
 * 完善前台模板
-
-
