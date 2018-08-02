@@ -35,6 +35,7 @@ class AdminOauthController extends AdminBaseController
 
         $lists = $oauthUserQuery->field('a.*,u.user_nickname,u.sex,u.avatar')->alias('a')->join('__USER__ u', 'a.user_id = u.id')->where("status", 1)->order("create_time DESC")->paginate(10);
         // 获取分页显示
+        dump($lists);
         $page = $lists->render();
         $this->assign('lists', $lists);
         $this->assign('page', $page);
