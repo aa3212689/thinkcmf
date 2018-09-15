@@ -35,6 +35,7 @@ class AdminArticleController extends AdminBaseController
     public function index()
     {
         $param = $this->request->param();
+//        dump($param);
 
         $categoryId = $this->request->param('category', 0, 'intval');
 
@@ -75,6 +76,7 @@ class AdminArticleController extends AdminBaseController
     {
         $themeModel        = new ThemeModel();
         $articleThemeFiles = $themeModel->getActionThemeFiles('portal/Article/index');
+//        print_r($articleThemeFiles->toArray());
         $this->assign('article_theme_files', $articleThemeFiles);
         return $this->fetch();
     }
@@ -95,7 +97,9 @@ class AdminArticleController extends AdminBaseController
     public function addPost()
     {
         if ($this->request->isPost()) {
+            //只要传递成数组就直接ok了
             $data   = $this->request->param();
+
 
             //状态只能设置默认值。未发布、未置顶、未推荐
             $data['post']['post_status'] = 0;
@@ -104,12 +108,22 @@ class AdminArticleController extends AdminBaseController
 
             $post   = $data['post'];
 
+            //增加奖品
+//            $data['awards']['one']='212';
+            $data['post']['one_time']= strtotime($data['post']['one_time']);
+            $data['post']['two_time']= strtotime($data['post']['two_time']);
+
             $result = $this->validate($post, 'AdminArticle');
             if ($result !== true) {
                 $this->error($result);
             }
 
             $portalPostModel = new PortalPostModel();
+
+
+
+        }
+
 
             if (!empty($data['photo_names']) && !empty($data['photo_urls'])) {
                 $data['post']['more']['photos'] = [];
@@ -142,7 +156,7 @@ class AdminArticleController extends AdminBaseController
             $this->success('添加成功!', url('AdminArticle/edit', ['id' => $portalPostModel->id]));
         }
 
-    }
+
 
     /**
      * 编辑文章
@@ -164,6 +178,7 @@ class AdminArticleController extends AdminBaseController
         $portalPostModel = new PortalPostModel();
         $post            = $portalPostModel->where('id', $id)->find();
         $postCategories  = $post->categories()->alias('a')->column('a.name', 'a.id');
+//        echo "Last SQL:". \think\Db::getLastSql() ."<br>";
         $postCategoryIds = implode(',', array_keys($postCategories));
 
         $themeModel        = new ThemeModel();

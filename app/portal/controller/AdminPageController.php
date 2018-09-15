@@ -34,11 +34,14 @@ class AdminPageController extends AdminBaseController
      */
     public function index()
     {
+
         $param = $this->request->param();
 
+
         $postService = new PostService();
+//        dump($postService);
         $data        = $postService->adminPageList($param);
-        dump($data);
+//        dump($data);
         $data->appends($param);
 
         $this->assign('keyword', isset($param['keyword']) ? $param['keyword'] : '');
@@ -132,6 +135,7 @@ class AdminPageController extends AdminBaseController
 
         $portalPostModel = new PortalPostModel();
         $post            = $portalPostModel->where('id', $id)->find();
+//        echo "Last SQL:". \think\Db::getLastSql() ."<br>";
 
         $themeModel     = new ThemeModel();
         $pageThemeFiles = $themeModel->getActionThemeFiles('portal/Page/index');

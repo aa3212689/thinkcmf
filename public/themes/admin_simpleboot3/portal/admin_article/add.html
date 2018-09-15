@@ -53,32 +53,24 @@
                                    id="title" required value="" placeholder="请输入标题"/>
                         </td>
                     </tr>
+
+                                               <tr  style="color:orange;font-size:18px;display:none;">
+                                                     <th>关键词</th>
+                                                     <td>
+                                                         <input class="form-control" type="text" name="post[post_keywords]" id="keywords" value=""
+                                                                placeholder="请输入关键字" >
+                                                         <p class="help-block">多关键词之间用英文逗号隔开</p>
+                                                     </td>
+                                                 </tr>
+
+
                     <tr>
-                        <th>关键词</th>
-                        <td>
-                            <input class="form-control" type="text" name="post[post_keywords]" id="keywords" value=""
-                                   placeholder="请输入关键字">
-                            <p class="help-block">多关键词之间用英文逗号隔开</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>文章来源</th>
-                        <td><input class="form-control" type="text" name="post[post_source]" id="source" value=""
-                                   placeholder="请输入文章来源"></td>
-                    </tr>
-                    <tr>
-                        <th>摘要</th>
-                        <td>
-                            <textarea class="form-control" name="post[post_excerpt]" style="height: 50px;"
-                                      placeholder="请填写摘要"></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>内容</th>
-                        <td>
-                            <script type="text/plain" id="content" name="post[post_content]"></script>
-                        </td>
-                    </tr>
+                                                            <th>赛事名称<span class="form-required"></span></th>
+                                                            <td>
+                                                                <input type="text" class="form-control" id="name" name="name">
+                                                            </td>
+                                                        </tr>
+
                     <tr>
                         <th>相册</th>
                         <td>
@@ -87,15 +79,24 @@
                                class="btn btn-default btn-sm">选择图片</a>
                         </td>
                     </tr>
-                    <tr>
-                        <th>附件</th>
-                        <td>
-                            <ul id="files" class="pic-list list-unstyled form-inline">
-                            </ul>
-                            <a href="javascript:uploadMultiFile('附件上传','#files','files-item-tpl','file');"
-                               class="btn btn-sm btn-default">选择文件</a>
-                        </td>
-                    </tr>
+ <tr>
+                                                        <th>比赛奖励</th>
+                                                        <td><textarea rows="6" cols="70" name="post[text]"></textarea> </td>
+                                                    </tr>
+
+                                                      <tr>
+                                                                        <th>开赛时间</th>
+                                                                        <td>
+                                                                            <input type="text" class="demo-input" placeholder="请选择日期" id="test1" name=post[one_time]>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>赛事截止时间</th>
+                                                                        <td>
+                                                                            <input type="text" class="demo-input" placeholder="请选择日期" id="test2" name=post[two_time]>
+
+                                                                        </td>
+                                                                    </tr>
                 </table>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
@@ -104,48 +105,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <table class="table table-bordered">
-                    <tr>
-                        <th><b>缩略图</b></th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <div style="text-align: center;">
-                                <input type="hidden" name="post[more][thumbnail]" id="thumbnail" value="">
-                                <a href="javascript:uploadOneImage('图片上传','#thumbnail');">
-                                    <img src="__TMPL__/public/assets/images/default-thumbnail.png"
-                                         id="thumbnail-preview"
-                                         width="135" style="cursor: pointer"/>
-                                </a>
-                                <input type="button" class="btn btn-sm btn-cancel-thumbnail" value="取消图片">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><b>发布时间</b></th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input class="form-control js-bootstrap-datetime" type="text" name="post[published_time]"
-                                   value="{:date('Y-m-d H:i:s',time())}">
-                        </td>
-                    </tr>
 
-                    <tr>
-                        <th>文章模板</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <select class="form-control" name="post[more][template]" id="more-template-select">
-                                <option value="">请选择模板</option>
-                                <foreach name="article_theme_files" item="vo">
-                                    <php>$value=preg_replace('/^portal\//','',$vo['file']);</php>
-                                    <option value="{$value}">{$vo.name} {$vo.file}.html</option>
-                                </foreach>
-                            </select>
-                        </td>
-                    </tr>
+
+
+
                 </table>
             </div>
         </div>
@@ -196,6 +159,20 @@
             }
         });
     }
+</script>
+<script>
+    //执行一个laydate实例
+    laydate.render({
+        elem: '#test1' //指定元素
+            ,
+        type: 'datetime'
+    });
+    //执行一个laydate实例
+    laydate.render({
+        elem: '#test2' //指定元素
+            ,
+        type: 'datetime'
+    });
 </script>
 </body>
 </html>

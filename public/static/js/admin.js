@@ -793,6 +793,7 @@ function openUploadDialog(dialog_title, callback, extra_params, multi, filetype,
             background: "#CCCCCC",
             opacity: 0,
             ok: function () {
+
                 if (typeof callback == 'function') {
                     var iframewindow = this.iframe.contentWindow;
                     var files        = iframewindow.get_selected_files();
@@ -878,6 +879,7 @@ function uploadMultiImage(dialog_title, container_selector, item_tpl_wrapper_id,
  * @param app  应用名,CMF 的应用名
  */
 function uploadMultiFile(dialog_title, container_selector, item_tpl_wrapper_id, filetype, extra_params, app) {
+    console.log('hi');
     filetype = filetype ? filetype : 'file';
     openUploadDialog(dialog_title, function (dialog, files) {
         var tpl  = $('#' + item_tpl_wrapper_id).html();

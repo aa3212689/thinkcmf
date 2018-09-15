@@ -19,6 +19,8 @@ class PortalPostModel extends Model
 
     protected $type = [
         'more' => 'array',
+        'awards'=>'array',
+
     ];
 
     // 开启自动写入时间戳字段
@@ -88,13 +90,27 @@ class PortalPostModel extends Model
     public function adminAddArticle($data, $categories)
     {
         $data['user_id'] = cmf_get_current_admin_id();
+       if (!empty($data['text'])) {
+        $abw=explode("&amp;",$data['text']);
+       foreach($abw as $key => $value){
+//           $wqw=$key;
+           $data['awards'][$key]=[];
+           $data['awards'][$key]=$value;
+       }
+       }
 
         if (!empty($data['more']['thumbnail'])) {
             $data['more']['thumbnail'] = cmf_asset_relative_url($data['more']['thumbnail']);
             $data['thumbnail']         = $data['more']['thumbnail'];
         }
 
-        $this->allowField(true)->data($data, true)->isUpdate(false)->save();
+
+
+
+//    $data['one_time']= strtotime($data['one_time']);
+//       $data['two_time']= strtotime($data['two_time']);
+        //正式插入数据
+        $this->allowField(true)->data($data,true)->isUpdate(false)->save();
 
         if (is_string($categories)) {
             $categories = explode(',', $categories);
@@ -128,6 +144,7 @@ class PortalPostModel extends Model
             $data['thumbnail']         = $data['more']['thumbnail'];
         }
         $this->allowField(true)->isUpdate(true)->data($data, true)->save();
+        echo "Last SQL:". \think\Db::getLastSql() ."<br>";
 
         if (is_string($categories)) {
             $categories = explode(',', $categories);

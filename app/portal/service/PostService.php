@@ -21,7 +21,9 @@ class PostService
     }
 
     public function adminPageList($filter)
+
     {
+
         return $this->adminPostList($filter, true);
     }
 
@@ -58,6 +60,7 @@ class PostService
             }
             if (!empty($endTime)) {
                 $where['a.published_time'] = ['<= time', $endTime];
+
             }
         }
 
@@ -78,6 +81,7 @@ class PostService
             ->where($where)
             ->order('update_time', 'DESC')
             ->paginate(10);
+//        echo "Last SQL:". \think\Db::getLastSql() ."<br>";
 
         return $articles;
 
